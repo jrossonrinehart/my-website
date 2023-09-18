@@ -1,14 +1,25 @@
 import React from "react";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Nav from "./components/Nav";
+import About from "./components/About";
+import Home from "./components/Home";
+import Portfolio from "./components/Portfolio";
+import Contact from "./components/Contact";
+
 
 function App() {
   return (
-    <>
-    <Nav />
-    <div className="bg-gray-600 w-full h-screen"></div>
-        
-    </>
-  );
+    <BrowserRouter>
+        <Nav />
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/about"element={<About />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/contact" element={<Contact/>} />
+        </Routes>
+      </BrowserRouter>
+    
+    );
 }
 
 export default App;
