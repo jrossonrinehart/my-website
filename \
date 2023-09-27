@@ -1,0 +1,14 @@
+import React from 'react';
+
+function WelcomePage() {
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <div className="bg-gray-100 p-8 rounded shadow-md">
+        <h1 className="text-6xl font-bold mb-4">Welcome to My Website</h1>
+        <p className="text-2xl text-gray-600">Discover my work, skills, and experience.</p>
+      </div>
+    </div>
+  );
+}
+
+export default WelcomePage;
