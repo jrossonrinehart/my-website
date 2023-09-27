@@ -5,7 +5,14 @@ function WelcomePage() {
   // Step 2: Initialize state
   const [displayText, setDisplayText] = useState("");
   const fullText = "Welcome to My Portfolio";
-  
+  const [showCursor, setShowCursor] = useState(true)
+  useEffect(() => {
+  const cursorInterval = setInterval(() => {
+    setShowCursor(prev => !prev);
+  }, 500); // adjust the blinking rate as needed
+
+  return () => clearInterval(cursorInterval);
+}, []);
   useEffect(() => {
     // Check if the text is fully displayed
     if (displayText.length < fullText.length) {
@@ -20,18 +27,18 @@ function WelcomePage() {
   }, [displayText]);
 
   return (
-    <div className="bg-orange-100 min-h-screen text-black flex items-center pl-8">
+    <div className="bg-orange-50 min-h-screen text-black flex items-center pl-8">
       <div>
-        <h1 className="text-4xl sm:text-6xl font-extrabold mb-4">
-          {displayText}
+        <h1 className="text-4xl sm:text-6xl font-serif mb-4">
+          {displayText}{showCursor ? '_' : ''}
         </h1>
-        <p className="text-lg sm:text-2xl text-gray-100 mb-8">
+        <p className="text-lg sm:text-2xl text-black font-serif mb-8">
           Discover my work, skills, and experience.
         </p>
 
         <Link
-          to="/portfolio"
-          className="inline-block px-6 py-3 text-white font-semibold bg-gradient-to-r from-green-500 to-teal-500 hover:from-teal-500 hover:to-green-500"
+          to="/about"
+          className="inline-block px-6 py-3 text-white font-semibold bg-red-600 hover:from-teal-500 hover:to-green-500"
         >
           Explore Now
         </Link>
